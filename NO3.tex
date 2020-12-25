@@ -1,0 +1,59 @@
+\documentclass[a4paper]{ctexart}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr} \pagestyle{fancy}
+\fancyfoot[C]{第\thepage 页}
+\fancyhead[C]{\LaTeX 学习}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newcommand{\zm}{{\heiti{证\quad}}}
+\begin{document}
+    \section*{平均不等式巧用数例}\addcontentsline{toc}{section}{平均不等式巧用数例}
+    \begin{center}
+        {\zihao{4} \kaishu{苏淳}}
+    \end{center} 
+
+    不等式的证明历来是高中数学中的一个难点，也是各类考试，尤其是各种竞赛命题时的一个重点．
+    由于对不等量之间关系的研究不象对等量之间关系的研究那样容易入手，因此讨论不等式的解法
+    就更加显得重要，分析法、反证法、数学归纳法、增量法等等都是一些常用的手法.借用一些著名
+    的不等式实现过度的手法也常被采用．许多学校、各类讲座通常还给学生补充介绍一些重要的较为
+    高等的不等式，诸如哥西不等式、西瓦兹不等式、闵可夫斯基不等式等等．其实，在很多问题中，
+    如果能较为巧妙地运用平均不等式，是完全可以回避使用这些高等不等式的．这对于一般高中学生
+    来讲，也容易被接受．\par \vspace{1ex}
+    所谓平均不等式，通常是指若干个正数的算术平均值不小于它们的几何平均值，例如
+    \[\frac{a_1+a_2}{2}\geqslant \sqrt{a_1 a_2}，
+    \frac{a_1+a_2+a_3}{3}\geqslant \sqrt[3]{a_1 a_2 a_3}\]
+    等等.下面我们就来看一看如何运用平均不等式来证明一些较难的不等式的吧!
+    \newcounter{liti}
+    \newenvironment{LiTi}{\begin{list}{\heiti 例 \arabic{liti}．}{\usecounter{liti}%
+            \labelsep=1ex
+            \itemindent = 4.32em
+            \listparindent = \parindent
+            \leftmargin = 0cm
+            \rightmargin = 0cm
+            \itemsep=0cm
+        }}{\end{list}}
+    \begin{LiTi}
+        \item 设$a$、$b$、$c$，皆为正数，求证：
+            \[\frac{a^8+b^8+c^8}{a^3 b^3 c^3}\geqslant \frac{a^2+b^2+c^2}{abc}\text{．}\] \par
+            \zm 易知，原不等式即为
+            \[\frac{a^6}{b^2 c^2}+\frac{b^6}{a^2 c^2}+\frac{c^6}{a^2 b^2}\geqslant a^2+b^2+c^2\text{．}\] \par 
+            而由平均不等式，知
+            \[\frac{a^6}{b^2 c^2}+b^2+c^2\geqslant 3\sqrt[3]{\frac{a^6}{b^2 c^2}\cdot b^2\cdot c^2}=3a^2\text{．}\] \par 
+            同理
+            \[\frac{b^6}{a^2 c^2}+a^2+c^2\geqslant 3b^2\text{，}\frac{c^6}{a^2 b^2}+a^2+b^2\geqslant 3c^2\text{．}\]\par 
+            将上述三式相加，消去同类项，即得所证．
+        \item 设$a$、$b$、$c$皆为正数，求证：
+            \[3(a^4 c+b^4 a+c^4 b)\geqslant a^3 bc+b^3 ac+c^3 ab+2a^2 b^2 c+2b^2 c^2 a+2c^2 a^2 b\text{．}\]\par 
+            \zm 易知，原不等式即为
+            \[a^4 c+b^4 a+c^4 b\geqslant \frac{1}{3} abc\left(a+b+c\right)^2\text{．}\]
+            亦即为
+            \[\frac{a^3}{b(a+b+c)}+\frac{b^3}{c(a+b+c)}+\frac{c^3}{a(a+b+c)}\geqslant \frac{a+b+c}{3}\text{．}\]
+            而由平均不等式，知
+            \[\frac{a^3}{b(a+b+c)}+\frac{b}{3}+\frac{a+b+c}{9}\geqslant a\text{，}\]
+            \[\frac{b^3}{c(a+b+c)}+\frac{c}{3}+\frac{a+b+c}{9}\geqslant b\text{，}\]
+            \[\frac{c^3}{a(a+b+c)}+\frac{a}{3}+\frac{a+b+c}{9}\geqslant c\text{，}\]
+            将上述三式相加，消去两端的同类项即得所证．\par
+            上述两道例题的处理手法完全一致，无非是设法在不等式的两端配上一些项，使得一方面可用平均不等式，另一方面又可方便地消去这些配上的项．
+            用这种手法处理一些全国数学竞赛甚至国际竞赛试题时，常常比标准答案所给的方法还要简单．
+    \end{LiTi}
+\end{document}
