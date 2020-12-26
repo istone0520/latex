@@ -1,0 +1,115 @@
+\documentclass[a4paper]{ctexart}
+\usepackage[margin = 2cm]{geometry}
+\usepackage{fancyhdr} \pagestyle{fancy}
+\fancyhead{}
+\fancyhead[C]{\LaTeX 学习}
+\fancyfoot[C]{第\thepage 页}
+\usepackage{amsmath}
+\usepackage{paralist}
+\usepackage{tkz-euclide}
+\usepackage{pifont}
+\parskip = 2mm plus 1pt
+\begin{document}
+    \section*{相交线与平行线}
+    \subsection*{阅读与思考}
+    在同一平面内，两条不同直线有两种位置关系：相交或平行．
+
+    当两条直线相交或两条直线分别与第三条直线相交，就产生对顶角、同位角、内错角、同旁内角等位置关系角，
+    善于从相交线中识别出以上不同名称的角是解相关问题的基础，把握对顶角有公共顶点，而同位角、内错角、
+    同旁内角没有公共顶点且有一条边在截线上，这是识图的关键．
+    
+    两直线平行的判定方法和重要性质是我们研究平行线问题的主要依据．
+    \begin{asparaenum}
+        \item 平行线的判定
+        \begin{compactenum}[\hspace{3.3\ccwd}(1)]
+            \item 同位角相等、内错角相等，或同旁内角互补，两直线平行；
+            \item 平行于同一直线的两条直线平行；
+            \item 在同一平面内，垂直于同一直线的两条直线平行．
+        \end{compactenum}
+        \item 平行线的性质
+        \begin{compactenum}[\hspace{3.3\ccwd}(1)]
+            \item 过直线外一点，有且只有一条直线和这条直线平行；
+            \item 两直线平行，同位角相等、内错角相等、同旁内角互补；
+            \item 如果一条直线和两条平行线中的一条垂直，那么它和另一条也垂直．
+        \end{compactenum}
+    \end{asparaenum} 
+
+    熟悉以下基本图形：
+
+    \begin{center}\begin{tabular}{c c c c c}
+        \begin{tikzpicture}[scale=0.75]
+            \tkzDefPoints{0/0/A,2/-0.5/B,0.2/2/C,2.2/1.8/D}
+            \tkzDrawSegments(A,D B,C)
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.75]
+            \tkzDefPoints{0/0/A,2.2/0/B,1/-1/C,1/1/D,1/0/O}
+            \tkzDrawSegments(A,B C,D)
+            \tkzMarkRightAngles(B,O,D)
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.75]
+            \tkzDefPoints{0/0/A,2/0.5/B,0/-1/C,2/-0.5/D,0/-2.2/E}
+            \tkzDrawSegments(A,E A,B C,D)
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.75]
+            \tkzDefPoints{0/0/A,2/0/B,1/2/C,-0.8/1.2/D}
+            \tkzDrawSegments(A,B A,C C,D)
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.75]
+            \tkzDefPoints{0/0/A,2/0/B,0.2/1.8/C,1.8/2/D}
+            \tkzDrawSegments(A,B A,C C,D)
+        \end{tikzpicture}
+    \end{tabular}\end{center}
+    \subsection*{例题与求解}
+    \begin{asparaenum}[\heiti 【例 1】]
+        \item (1)\, 如图\ding{172}，$AB\parallel DE$，$\angle ABC=80^{\circ}$，$\angle CDE=140^{\circ}$，则$\angle BCD=$\underline{\hspace{5\ccwd}}．
+            \begin{flushright}
+                \kaishu （安徽省中考试题）
+            \end{flushright}
+            \hspace{6.4\ccwd}(2)\, 如图\ding{173}，已知直线$AB\parallel CD$，$\angle C=115^{\circ}$，$\angle A=25^{\circ}$，则$\angle E=$\underline{\hspace{5\ccwd}}．
+            \begin{flushright}
+                \kaishu （浙江省杭州市中考试题）
+            \end{flushright}
+        
+
+        \begin{flushright}\begin{tabular}{c c}
+            \begin{tikzpicture}
+                \tkzDefPoints{0/0/A,2/0/B,3/-1/D,5/-1/E}
+                \tkzDefPointBy[rotation = center B angle 80](A) \tkzGetPoint{c1}
+                \tkzDefPointBy[rotation = center D angle -140](E) \tkzGetPoint{c2}
+                \tkzInterLL(B,c1)(D,c2) \tkzGetPoint{C}
+                \tkzDrawPolySeg(A,B,C,D,E)
+                \tkzLabelPoints[above](A,B,D,E)
+                \tkzLabelPoints[below](C)
+            \end{tikzpicture}\hspace{2\ccwd}
+            &
+            \begin{tikzpicture}
+                \tkzDefPoints{0/0/A,5/0/B,1.8/-1.5/C,6/-1.5/D}
+                \tkzDefPointBy[rotation = center A angle 25](B) \tkzGetPoint{c1}
+                \tkzDefPointBy[rotation = center C angle -115](D) \tkzGetPoint{c2}
+                \tkzInterLL(A,c1)(C,c2) \tkzGetPoint{E}
+                \tkzInterLL(A,B)(C,E) \tkzGetPoint{F}
+                \tkzDrawPolySeg(B,A,E,C,D)
+                \tkzLabelPoints[above](A,B,E)
+                \tkzLabelPoints[below](C,D)
+                \tkzLabelPoints[below right](F)
+            \end{tikzpicture} \\
+            图\ding{172} & 图\ding{173} \\
+        \end{tabular}\end{flushright} \vspace{2cm}
+        \item 如图，平行直线$AB$，$CD$与相交直线$EF$，$GH$相交，图中的同旁内角共有(\hspace{3.5\ccwd})．\par 
+        \hspace{6\ccwd} A．4对\hspace{2cm}B．8对\hspace{2cm}C．12对\hspace{2cm}D．16对
+        \begin{flushright}
+            \kaishu (“希望杯”邀请赛试题)
+        \end{flushright}
+        \begin{center}\begin{tikzpicture}[scale=0.75]
+            \tkzDefPoints{0/0/A,3/0/B,-0.5/-1.5/C,4/-1.5/D,0.5/2.5/E,1.2/2.6/G,0.2/-2.5/H,3.5/-2.5/F}
+            \tkzDrawSegments(A,B C,D E,F G,H)
+            \tkzLabelPoints[left](A,C,E,H)
+            \tkzLabelPoints[right](G,B,D,F)
+        \end{tikzpicture}\end{center}
+    \end{asparaenum}
+    \subsection*{能力训练}
+\end{document}
